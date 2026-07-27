@@ -1,0 +1,108 @@
+{
+  "theme": "dark",
+  "art_direction": "Cyber-minimalist, high-contrast, tactical dark mode. Focus on resilience, off-grid infrastructure, and technical precision. Aesthetic blends brutalism with HUD/command-center UI. Extreme restraint in color, using neon green (#00FF66) strictly as an active signal color against deep charcoal surfaces. Grids are exposed via 1px hairline borders. Layouts are strictly asymmetric and left-aligned.",
+  "colors": {
+    "background": "#121212",
+    "surface": "#1A1A1A",
+    "surface_elevated": "#2A2A2A",
+    "primary_neon": "#00FF66",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#A0A0A0",
+    "border": "#333333",
+    "glow": "rgba(0, 255, 102, 0.2)"
+  },
+  "typography": {
+    "headings_font": "'Unbounded', sans-serif",
+    "body_font": "'IBM Plex Mono', monospace",
+    "scale": {
+      "h1": "clamp(2.5rem, 6vw, 5rem)",
+      "h2": "clamp(2rem, 4vw, 3.5rem)",
+      "h3": "clamp(1.25rem, 2vw, 1.75rem)",
+      "body": "1rem",
+      "caption": "0.75rem"
+    },
+    "rules": [
+      "Use 'Unbounded' for all major headings with tight letter-spacing (-0.02em).",
+      "Use 'IBM Plex Mono' for body text, numerical data, step indicators, and UI elements like buttons.",
+      "Never center-align large blocks of text; keep typography left-aligned for technical precision."
+    ]
+  },
+  "layout_and_grids": {
+    "philosophy": "Asymmetric, left-aligned, bento-inspired structural grid.",
+    "container": "Max-width 1440px, auto margins, but internal content snaps to an exposed CSS grid.",
+    "spacing": "Base unit 8px. Use generous padding (e.g., 64px, 128px) between major sections to emphasize isolation and scale.",
+    "border_treatment": "Expose the skeleton. Use 1px solid #333333 borders to create panels and sections. Avoid soft drop shadows; rely on borders and background lightness for separation."
+  },
+  "motion_and_interactions": {
+    "hero_reveal": "Masked line-by-line reveal for the H1 on load. Use CSS clip-path or overflow:hidden with transform:translateY(100%) to translateY(0) over 1.2s cubic-bezier(0.19, 1, 0.22, 1).",
+    "scroll_reveals": "IntersectionObserver to trigger .reveal classes. Elements fade in and slide up slightly (opacity 0 -> 1, translateY 20px -> 0) with a 0.6s ease-out duration.",
+    "marquee": "Very slow editorial CSS marquee band running infinitely. Font should be monospace, color muted text with neon accents.",
+    "hover_states": "Micro-interactions: subtle -translate-y (2px), border color change to #00FF66, and adding a subtle #00FF66 text shadow/glow.",
+    "parallax": "Subtle translate-y adjustment tied to scroll position (via lightweight vanilla JS) for hero imagery to create depth."
+  },
+  "key_sections_and_components": [
+    {
+      "name": "Header & Language Toggle",
+      "description": "Fixed top navigation. Blurry glassmorphism (backdrop-filter: blur(12px), background: rgba(18, 18, 18, 0.8)). Contains logo (text) and an interactive EN/MY toggle button that triggers JS dictionary swap instantly.",
+      "test_id": "language-toggle"
+    },
+    {
+      "name": "Kinetic Hero",
+      "description": "Bold left-aligned H1. Masked line-by-line reveal on load. Subtitle explaining off-grid mesh infrastructure. Subtle parallax image on the right or behind. Contains primary CTA to 'Discover Local Nodes'.",
+      "test_id": "hero-section"
+    },
+    {
+      "name": "Editorial Marquee",
+      "description": "Slow moving CSS animation text tape separating the hero from the next section. E.g., 'DECENTRALIZED COMMUNICATION // 919-923 MHZ // OFF-GRID RESILIENCE'."
+    },
+    {
+      "name": "Simulated Node Map Canvas",
+      "description": "A full-width or large bento container with an HTML5 canvas. Vanilla JS draws connecting lines and pulsing nodes (neon green) representing hypothetical coverage zones in Malaysia.",
+      "test_id": "node-map-canvas"
+    },
+    {
+      "name": "Hardware Flashing Guide (Manifesto)",
+      "description": "Numbered step-by-step list (1-2-3). Large monospace numbers. Tactical instructions for configuring Malaysian 919-923 MHz LoRa band. Asymmetrical bento grid layout with strict 1px borders."
+    },
+    {
+      "name": "Secure Download Vault",
+      "description": "Grid of standalone download cards for BitChat APK (https://bitchat.free/) and PDF guides. Cards feature hover micro-interactions (border glows neon green).",
+      "test_id": "download-vault"
+    }
+  ],
+  "implementation_rules": [
+    "SINGLE HTML FILE ONLY. No external CSS/JS files. No React. No Tailwind CLI.",
+    "Use embedded style block for CSS.",
+    "Use pure CSS variables for theme management.",
+    "Use vanilla JavaScript embedded in a script tag at the bottom of the body.",
+    "Language switching MUST be instantaneous without reloading the page, utilizing a JS dictionary array mapping data-i18n attributes.",
+    "Canvas animation must use requestAnimationFrame and be highly optimized for older smartphones.",
+    "All interactive elements must include data-testid attributes.",
+    "Ensure readable contrast ratios (APCA preferred) especially when using neon green on dark gray."
+  ],
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1684610529682-553625a1ffed?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTB8MHwxfHNlYXJjaHwzfHxtZXNoJTIwbmV0d29yayUyMG5vZGUlMjBuaWdodHxlbnwwfHx8fDE3ODUxMzAwODZ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract globe with mesh nodes, perfect for subtle background parallax in the hero."
+    },
+    "tactical_hardware": {
+      "url": "https://images.unsplash.com/photo-1714384716870-6d6322bf5a7f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjd8MHwxfHNlYXJjaHw0fHx0YWN0aWNhbCUyMHJhZGlvJTIwb3V0ZG9vcnxlbnwwfHx8fDE3ODUxMzAwODZ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Tactical outdoor aesthetic for the hardware/flashing guide section."
+    },
+    "off_grid_survival": {
+      "url": "https://images.unsplash.com/photo-1779089123198-3d99ce6ac161?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHw0fHxmb3Jlc3QlMjB3aWxkZXJuZXNzJTIwb2ZmJTIwZ3JpZCUyMHN1cnZpdmFsfGVufDB8fHx8MTc4NTEzMDA4Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "A-frame cabin representing off-grid resilience for the community map or manifesto section."
+    }
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use React, Tailwind CLI, or external dependencies. Adhere STRICTLY to the single-file Vanilla HTML/JS/CSS constraint.",
+    "Write semantic, accessibility-compliant HTML.",
+    "Embed all CSS in a style block and JS in a script block.",
+    "Create depth through layered design elements using z-index and explicit 1px borders.",
+    "Use glass-morphism effects carefully with backdrop filters, maintaining a 1px border separator.",
+    "Never apply universal transitions (e.g. transition: all). Target specific properties like opacity, transform, and border-color.",
+    "Do not center-align the app container. Keep text flow natural, left-aligned.",
+    "For the canvas element, ensure it resizes smoothly on window resize without causing layout thrashing.",
+    "Build the translation system efficiently so it iterates over DOM elements with data-i18n attributes and swaps textContent safely."
+  ]
+}
