@@ -1,0 +1,23 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${NGINX_IMAGE:-meshgrid-my:latest}
+    container_name: ${CONTAINER_NAME:-meshgrid_my}
+    restart: ${RESTART_POLICY:-unless-stopped}
+    # NOTE: Do NOT publish host ports on Coolify. Coolify's built-in reverse
+    # proxy (Traefik/Caddy) routes your domain to the container's internal
+    # port automatically. Publishing a host port causes
+    # "Bind for 0.0.0.0:<port> failed: port is already allocated" errors.
+    # Use `expose` instead and set the FQDN in the Coolify UI.
+    expose:
+      - "80"
+    environment:
+      # Tells Coolify's proxy which internal port to route the domain to.
+      - PORT=80
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "${LOG_MAX_SIZE:-10m}"
+        max-file: "${LOG_MAX_FILES:-3}"

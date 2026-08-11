@@ -1,0 +1,22 @@
+.git
+.gitignore
+.env
+.env.example
+.env.*
+*.env
+.DS_Store
+Thumbs.db
+*.log
+README.md
+COOLIFY_NOTES.md
+.dockerignore
+
+# Legacy development scaffolding not needed in the production image
+frontend/
+backend/
+tests/
+scripts/
+test_reports/
+memory/
+.emergent/
+node_modules/

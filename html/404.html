@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#121212" />
+  <title>404 // MeshGrid MY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg:#121212; --neon:#00ff66; --muted:#9a9d97; --line:#2c2c2c; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; background:var(--bg); color:#f4f5f2; font-family:'IBM Plex Mono', ui-monospace, monospace; }
+    body {
+      display:grid; place-items:center; padding:32px;
+      background-image:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    .card { max-width: 560px; border:1px solid var(--line); padding:48px; background:rgba(18,18,18,0.92); }
+    .kicker { color: var(--neon); font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; display:inline-flex; align-items:center; gap:10px; }
+    .kicker::before { content:""; width:22px; height:1px; background:var(--neon); display:inline-block; }
+    h1 { font-family:'Unbounded', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight:800; letter-spacing:-0.02em; line-height:1; margin: 22px 0 18px; }
+    h1 em { color: var(--neon); font-style:normal; text-shadow: 0 0 34px rgba(0,255,102,0.25); }
+    p { color: var(--muted); max-width: 44ch; margin-bottom: 28px; font-size:.95rem; }
+    a { display:inline-flex; align-items:center; gap:10px; padding:14px 24px; border:1px solid var(--neon); color:var(--neon); text-decoration:none; font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:.78rem; transition: background-color .3s, color .3s; }
+    a:hover { background: var(--neon); color:#06120a; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <span class="kicker">Signal lost</span>
+    <h1>4<em>0</em>4</h1>
+    <p>This node isn&rsquo;t on the mesh. The page you&rsquo;re looking for doesn&rsquo;t exist &mdash; or it drifted out of range.</p>
+    <a href="/">Return to base &rarr;</a>
+  </div>
+</body>
+</html>
